@@ -10,7 +10,8 @@ public class UsersContacts {
     private Integer phNo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    //user_id will be the column name and that column will store the id of User [id];
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
 
