@@ -1,17 +1,15 @@
-package com.techprimers.jpa.springjpahibernateexample.model;
+package com.softnp.OneToOne.model;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "users", catalog = "test")
-public class Users {
 
+@Entity
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Integer id;
-    @Column(name = "name")
     private String name;
     private Integer salary;
     private String teamName;
@@ -20,17 +18,13 @@ public class Users {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private List<UsersLog> usersLogs;
 
-
-    public Users() {
+    public User() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public Users setId(Integer id) {
-        this.id = id;
-        return this;
+    public User(String name, Integer salary, String teamName) {
+        this.name = name;
+        this.salary = salary;
+        this.teamName = teamName;
     }
 
     public List<UsersLog> getUsersLogs() {
@@ -41,11 +35,20 @@ public class Users {
         this.usersLogs = usersLogs;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public User setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Users setName(String name) {
+    public User setName(String name) {
         this.name = name;
         return this;
     }
@@ -54,7 +57,7 @@ public class Users {
         return salary;
     }
 
-    public Users setSalary(Integer salary) {
+    public User setSalary(Integer salary) {
         this.salary = salary;
         return this;
     }
@@ -63,7 +66,7 @@ public class Users {
         return teamName;
     }
 
-    public Users setTeamName(String teamName) {
+    public User setTeamName(String teamName) {
         this.teamName = teamName;
         return this;
     }

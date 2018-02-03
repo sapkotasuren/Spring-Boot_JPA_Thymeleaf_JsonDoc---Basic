@@ -1,20 +1,26 @@
-package com.techprimers.jpa.springjpahibernateexample.model;
+package com.softnp.OneToOne.model;
 
 import javax.persistence.*;
 
-@Table(name = "users_log", catalog = "test")
+
 @Entity
 public class UsersLog {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "log_id")
-    private Integer id;
-
+    private Long id;
     private String log;
 
     @Column(name = "user_id")
     private Integer userId;
+
+    public UsersLog() {
+    }
+
+    public UsersLog(String log, Integer userId) {
+        this.userId = userId;
+        this.log = log;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -24,14 +30,11 @@ public class UsersLog {
         this.userId = userId;
     }
 
-    public UsersLog() {
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
